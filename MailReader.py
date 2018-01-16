@@ -25,7 +25,7 @@ from oauth2client import file, client, tools
 # 기록할 logger를 설정한다.
 def set_logger():
     logging.basicConfig(filename='./log/my.log', level=logging.DEBUG)
-    logger = logging.getLogger("JiYul")
+    logger = logging.getLogger("") #이름
     logger.setLevel(logging.DEBUG)
     fileHandler = logging.FileHandler('./log/my.log')
     streamHandler = logging.StreamHandler()
@@ -50,7 +50,7 @@ def get_message():
     label_id_one = 'INBOX'
     label_id_two = 'UNREAD'
 
-    checkSenderList = ["박건후", "이지율", "중년의 품격"]
+    checkSenderList = ["", "", ""] #이메일 보낸사람 리스트
     flag = 'true'
     outputList = []
 
@@ -375,8 +375,8 @@ for a in range(len(output_list)):
     codeType = output_list.__getitem__(a)['Product_Number']
     order_num = output_list.__getitem__(a)['Order_Number']
     price = output_list.__getitem__(a)['Money']
-    name = "박건후"
-    email = ""
+    name = "" # 이름
+    email = "" # 이메일
     sender = output_list.__getitem__(a)['Sender']
     mall = sender[sender.find('<')+1:sender.find('>')]
 
@@ -406,4 +406,4 @@ logger.debug("End")
 
 #gmail_user, gmail_pwd
 #host, password, user, etc..
-#email
+#email(recipients)
